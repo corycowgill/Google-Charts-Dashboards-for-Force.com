@@ -1,0 +1,56 @@
+<apex:component controller="GoogleDashboardController">
+	<apex:attribute name="dashboardName" assignTo="{!dashboardName}" description="This is the value for the dashboard to display" type="String" required="true"/>
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<script type="text/javascript">
+    
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1', {'packages':['corechart']});
+      google.load('visualization', '1', {packages:['table']});
+      
+      
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+      
+      // Callback that creates and populates a data table, 
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      var data;
+      
+      function init()
+      {
+      	data = new google.visualization.DataTable();
+	    data.addColumn('string','{!dashboard.dashConfig.Group_By_Field__c}')
+      	data.addColumn('number', '{!dashboard.dashConfig.Group_By_Field_Label__c}');
+      }
+      
+      function drawChart() {
+
+      // Create our data table.
+	    data = new google.visualization.DataTable();
+	    data.addColumn('string','{!dashboard.dashConfig.Group_By_Field__c}');
+      	data.addColumn('number', '{!dashboard.dashConfig.Group_By_Field_Label__c}');
+      	<apex:repeat value="{!dashboard.recs}" var="agg">
+    	     data.addRow(['{!agg.field_name}',{!agg.num}]);
+        </apex:repeat>
+      // Instantiate and draw our chart, passing in some options.
+      var chart;
+      if('{!dashboard.dashConfig.Dashboard_Type__c}' == 'Pie') 
+      {
+      	chart = new google.visualization.PieChart(document.getElementById('chart_div{!dashboardName}'));
+      }else if('{!dashboard.dashConfig.Dashboard_Type__c}' == 'Bar')
+      {
+      	chart = new google.visualization.BarChart(document.getElementById('chart_div{!dashboardName}'));
+      }else if('{!dashboard.dashConfig.Dashboard_Type__c}' == 'Table')
+      {
+      	chart = new google.visualization.Table(document.getElementById('chart_div{!dashboardName}'));
+      }
+      chart.draw(data, {width: 450, height: 260,"title":"{!dashboard.dashConfig.Name}"});
+      }
+      
+      init();
+    </script>
+    <script>drawChart();</script>
+    <apex:outputText style="font-weight:bold;" rendered="{!dashboard.dashConfig.Dashboard_Type__c == 'Table'}" value="{!dashboard.dashConfig.Name}"/><br/>
+    <div id="chart_div{!dashboardName}"></div>
+    <a href="{!dashboard.dashConfig.Dashboard_Link__c}"><apex:outputText value="Dashboard Link"/></a>
+</apex:component>

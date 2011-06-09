@@ -1,0 +1,17 @@
+<apex:page cache="false" sidebar="true" showHeader="true">
+	<apex:pageBlock title="SAMPE - Custom Dashboards" >
+		<apex:pageBlockSection columns="2">
+			<apex:pageBlockSectionItem >
+				<c:GoogleChartComponent dashboardName="Account Dashboard"/>
+			</apex:pageBlockSectionItem>	
+			<apex:pageBlockSectionItem >
+				<c:GoogleChartComponent dashboardName="Opportunity Dashboard"/>
+			</apex:pageBlockSectionItem>
+		</apex:pageBlockSection>
+		<apex:pageBlockSection columns="2">
+			<apex:pageBlockSectionItem >
+				<c:GoogleChartComponent dashboardName="Contact Dashboard"/>
+			</apex:pageBlockSectionItem>	
+		</apex:pageBlockSection>
+	</apex:pageBlock>
+</apex:page>
