@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Dashboard_Link__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the hyperlink you can to create for the dashboard.</inlineHelpText>
+        <label>Dashboard Link</label>
+        <required>false</required>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Dashboard_Type__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the type of dashboard you want to create.</inlineHelpText>
+        <label>Dashboard Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Bar</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pie</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Table</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Group_By_Field_Label__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the label for the group by field that you want to display in the Google Chart.</inlineHelpText>
+        <label>Group By Field Label</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Group_By_Field__c</fullName>
+        <externalId>false</externalId>
+        <label>Group By Field</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Object_Type__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>The API name of the object you want to build the dashboard for.</inlineHelpText>
+        <label>Object Type</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Summary_Field1__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the API name of a number field you want to perform the SUM on for the dashboard.</inlineHelpText>
+        <label>Summary Field1</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Where_Clause__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>USE WITH CAUTION: This field allows you to filter the generated dashboard queries. Invalid syntax can break your dashboard. You should create the WHERE clause using this format: &apos; WHERE FIELD_X = /&apos;Y&apos;/&apos;.</inlineHelpText>
+        <label>Where Clause</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Google Dashboard Configuration</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Google Dashboard Configuration Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Google Dashboard Configurations</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>
